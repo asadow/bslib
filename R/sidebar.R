@@ -98,6 +98,10 @@ sidebar <- function(
     title <- div(title, class = "sidebar-title")
   }
 
+  if (!is.null(title)) {
+    title <- tags$header(title)
+  }
+
   collapse_tag <-
     if (open != "always") {
       tags$button(

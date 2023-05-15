@@ -37,7 +37,7 @@
 #' @param id A character string. Required if wanting to re-actively read (or
 #'   update) the `collapsible` state in a Shiny app.
 #' @param title A character title to be used as the sidebar title, which will be
-#'   wrapped in a `<div>` element with class `sidebar-title`. You can also
+#'   wrapped in a `<header>` element with class `sidebar-title`. You can also
 #'   provide a custom [htmltools::tag()] for the title element, in which case
 #'   you'll likely want to give this element `class = "sidebar-title"`.
 #' @param bg,fg A background or foreground color. If only one of either is
@@ -95,11 +95,7 @@ sidebar <- function(
   }
 
   if (rlang::is_bare_character(title) || rlang::is_bare_numeric(title)) {
-    title <- div(title, class = "sidebar-title")
-  }
-
-  if (!is.null(title)) {
-    title <- tags$header(title)
+    title <- tags$header(title, class = "sidebar-title")
   }
 
   collapse_tag <-

@@ -182,8 +182,7 @@ layout_sidebar <- function(
     bg <- get_color_contrast(fg)
   }
 
-  main <- div(
-    role = "main",
+  main <- tags$article(
     class = "main",
     style = css(
       background_color = bg,
